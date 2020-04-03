@@ -3,7 +3,7 @@ using RestSharp;
 
 namespace ParkFinderClient.Models
 {
-  class ApiHelper
+  class ParkApiHelper
   {
     public static async Task<string> GetAll()
     {
