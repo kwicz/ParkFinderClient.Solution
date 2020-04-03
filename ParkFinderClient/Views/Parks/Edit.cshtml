@@ -1,0 +1,20 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Edit Park:</h1>
+<form action="/Parks/Details/@(Model.ParkId)" method="post">
+  <label for="name">Park's Name</label>
+  <input id="name" name="name" type="text" value="@(Model.Name)">
+  <label for="location">Park's location</label>
+  <input id="location" name="location" type="text" value="@(Model.Location)">
+  <label for="dateEstablished">Park's dateEstablished</label>
+  <input id="dateEstablished" name="dateEstablished" type="number" value="@(Model.DateEstablished)">
+  <label for="area">Park's area</label>
+  <input id="area" name="area" type="text" value="@(Model.Area)">
+  <label for="description">Park's description</label>
+  <input id="description" name="description" type="text" value="@(Model.Description)">
+  <button type="submit">Go!</button>
+</form>
+
+<a href="/Parks/Details/@(Model.ParkId)"><p>Return to Details</p></a>
