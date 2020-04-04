@@ -16,8 +16,13 @@ namespace ParkFinderClient.Controllers
       return View(allParks);
     }
 
+    public IActionResult Create()
+    {
+      return View();
+    }
+
     [HttpPost]
-    public IActionResult Index(Park park)
+    public IActionResult Create(Park park)
     {
       Park.Post(park);
       return RedirectToAction("Index");

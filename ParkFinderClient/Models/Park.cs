@@ -17,8 +17,10 @@ namespace ParkFinderClient.Models
 
     public static List<Park> GetParks()
     {
-      var apiCallTask = ParkApiHelper.GetAll();
+      var apiCallTask = ApiHelper.GetAll();
       var result = apiCallTask.Result;
+
+      Console.WriteLine("result: ", result.ToString());
 
       JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
       List<Park> parkList = JsonConvert.DeserializeObject<List<Park>>(jsonResponse.ToString());
@@ -28,7 +30,7 @@ namespace ParkFinderClient.Models
 
     public static Park GetDetails(int id)
     {
-      var apiCallTask = ParkApiHelper.Get(id);
+      var apiCallTask = ApiHelper.Get(id);
       var result = apiCallTask.Result;
 
       JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
@@ -40,18 +42,18 @@ namespace ParkFinderClient.Models
     public static void Post(Park park)
     {
       string jsonPark = JsonConvert.SerializeObject(park);
-      var apiCallTask = ParkApiHelper.Post(jsonPark);
+      var apiCallTask = ApiHelper.Post(jsonPark);
     }
 
     public static void Put(Park park)
     {
       string jsonPark = JsonConvert.SerializeObject(park);
-      var apiCallTask = ParkApiHelper.Put(park.ParkId, jsonPark);
+      var apiCallTask = ApiHelper.Put(park.ParkId, jsonPark);
     }
 
     public static void Delete(int id)
     {
-      var apiCallTask = ParkApiHelper.Delete(id);
+      var apiCallTask = ApiHelper.Delete(id);
     }
   }
 }
